@@ -128,7 +128,12 @@ class Deque(DequeAbstract):
         if self.is_empty():
             raise Exception("La estructura esta vacia")
 
+        anterior_front = self._front
+
         self._front = self._front.next
+        del anterior_front
+
+        self._size -= 1
 
     def delete_last(self) -> None:
         """Quita el elemento ubicado al final de la estructura.
@@ -136,17 +141,17 @@ class Deque(DequeAbstract):
         Raise:
             Exception: Arroja una excepcion si la estructura esta vacia"""
 
-        # Inicializo i (Es asi porque sino no me anda por alguna razon xdn´t)
-        i = (self.__len__() - 3)
+        if self.is_empty():
+            raise Exception("La estructura esta vacia")
         
-        # Inicializo la variable nuevo_back
         nuevo_back = self._front
-        
+
         #Recorro toda la estructura hasta llegar al anteultimo nodo
-        while i != 0:
+        while nuevo_back.next.next:
             nuevo_back = nuevo_back.next
-            i -= 1
 
         # Asigno el nuevo back y seteo su siguiente como None
         self._back = nuevo_back
         self._back.next = None
+
+        self._size -= 1
