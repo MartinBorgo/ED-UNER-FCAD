@@ -17,7 +17,7 @@ print(lista)
 
 print("Elemeton en posicion 3 ->", lista.__getitem__(3))
 
-lista.__setitem__(4, "valor de prueva")
+lista.__setitem__(4, "valor de prueba")
 print("Se agrego un nuevo nodo en la posicion 4", lista, "Longitud: ", lista.__len__())
 
 lista.__delitem__(4)

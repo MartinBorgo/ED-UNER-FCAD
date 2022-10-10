@@ -59,7 +59,7 @@ class DoubleLinkedList(DoubleLinkedListAbstract):
             raise Exception("Valor del indice fuera de rango.")
 
         position = self._head
-        for i in range(key-1):
+        for i in range(key-2):
             position = position.next
     
         new_node = Node(value, position, position.next)
@@ -86,7 +86,7 @@ class DoubleLinkedList(DoubleLinkedListAbstract):
             raise Exception("Valor del indice fuera de rango.")
 
         position = self._head
-        for i in range(key):
+        for i in range(key-1):
             position = position.next
 
         position.next.previous = position.previous
