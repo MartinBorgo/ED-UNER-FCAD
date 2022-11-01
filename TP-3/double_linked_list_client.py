@@ -22,3 +22,7 @@ print("Se agrego un nuevo nodo en la posicion 4", lista, "Longitud: ", lista.__l
 
 lista.__delitem__(4)
 print("Se elimino el nodo de la posicion 4 de la lista ->", lista)
+
+print("Se prueba el Iterator")
+for element in lista:
+    print(element)
