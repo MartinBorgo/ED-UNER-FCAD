@@ -44,20 +44,10 @@ class LinkedBinaryTreeExt(LinkedBinaryTreeExtAbstract,LinkedBinaryTree):
         internos = []
         for nodo in self.__iter__():
 
-            # si no tiene padre pasa de largo
-            if self._search_parent(nodo) is None:
-                pass
+            if self._search_parent(nodo):
+                if nodo.right_child or nodo.left_child:
+                    internos.append(nodo.element)
 
-            # si tiene padre pero no tiene hijos entonses pasa
-            if self._search_parent(nodo) and not nodo.right_child and not nodo.left_child:
-                pass
-
-            # si tiene padre y ademas tiene al menos un hijo entonses es interno
-            if self._search_parent(nodo) != None and nodo.right_child or nodo.left_child:
-                internos.append(nodo.element)
-
-        # Tube que hacer esto porque por alguna razon me agregaba la raiz
-        del internos[0]
         return internos
 
     def profundidad(self, nodo : BinaryTreeNode):
@@ -109,7 +99,6 @@ class LinkedBinaryTreeExt(LinkedBinaryTreeExtAbstract,LinkedBinaryTree):
 
             while mi_nodo:
                 mi_nodo = self._search_parent(mi_nodo)
-
 
                 if nodo == mi_nodo:
                     if altura < contador:

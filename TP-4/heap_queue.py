@@ -5,6 +5,7 @@ class HeapQueue():
     """Esta clase enmascara a todos los metodos privados de la clase PriorityHeap"""
     def __init__(self):
         self._heap = ArrayHeap()
+        self._prio = 0
 
     def __len__(self):
         """Devuelve la logitud de la estructura
@@ -22,31 +23,32 @@ class HeapQueue():
 
         return len(self._heap) == 0
 
-    def enqueue(self, key: Any, value: Any):
+    def enqueue(self, value: Any):
         """Agrega un nodo a la estructura
         
         Param:
             key (Any): clave del nodo.
             value (Any): valor del nodo. """
 
-        self._heap.add(key, value)
+        self._heap.add(self._prio, value)
+        self._prio += 1
 
     def dequeue(self):
         """Remueve el nodo de menor prioridad de la estructura
         
         Raises:
-            Exception: arroja una excepcion si la estructura esta vacia. """
+            Exception: arroja una excepcion si la estructura esta vacia. 
+            
+        Returns: 
+            Tuple[Any]: una tupla con la (clave, valor) del nodo de menor prioridad"""
 
-        del_node = self._heap.remove_min()
-
-        return del_node[1]
+        self._prio -= 1
+        return self._heap.remove_min()
 
     def first(self):
         """Devuelve (sin eliminar), la nodo de menor prioridad de la estructura
         
         Returns:
-            Any: devuelve el valor de menor prioridad de la estructura"""
-        
-        min_prio = self._heap.min()
+            Tuple[Any]: devuelve una tupla con la (calve, valor) del nodo de menor prioridad. """
 
-        return min_prio[1]
+        return self._heap.min()

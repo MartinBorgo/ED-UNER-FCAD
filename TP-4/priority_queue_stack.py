@@ -50,6 +50,7 @@ class PriorityQueueStack():
         if self.is_empty():
             raise Exception("No se puede eliminar un elemento si la estructura esta vacia")
 
+        self._cont += 1
         return self._content.pop()
         
     def top(self) -> Any:
