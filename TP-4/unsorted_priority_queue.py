@@ -1,13 +1,13 @@
 from utilidades.unsorted_priority_queue_abstract import UnsortedPriorityQueueAbstract
-from utilidades.priority_node import PriorityNode
-from typing import Any
+from python_ed_fcad_uner.data_structures import PriorityQueueBase
+from typing import Any, Tuple
 
-class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract):
+class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract, PriorityQueueBase):
 
     def __init__(self):
         self._content = []
 
-    def __len__(self):
+    def __len__(self) -> int:
         """ Devuelve la cantidad de elementos en la estructura.
 
         Returns:
@@ -15,7 +15,7 @@ class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract):
 
         return len(self._content)
 
-    def __str__(self):
+    def __str__(self) -> str:
         if self.is_empty():
             return "UnsortedPriorityQueue()"
         else:
@@ -29,16 +29,16 @@ class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract):
 
         return self.__len__() == 0
 
-    def add(self, k : Any, v : Any):
+    def add(self, k : Any, v : Any) -> None:
         """ Inserta un nuevo ítem al final de la estructura.
 
         Args:
             k (Any): Clave que determina la prioridad del ítem.
             v (Any): Valor del ítem. """
 
-        self._content.append(PriorityNode(k, v))
+        self._content.append(self._Item(k, v))
     
-    def min(self):
+    def min(self) -> Tuple[Any]:
         """ Devuelve una tupla conformada por la clave y valor del ítem con menor valor de clave.
 
         Raises:
@@ -58,7 +58,7 @@ class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract):
         return (menor._key,menor._value)
 
 
-    def remove_min(self):
+    def remove_min(self) -> Tuple[Any]:
         """ Quita de la estructura el ítem con menor valor de clave.
         
         Raises:

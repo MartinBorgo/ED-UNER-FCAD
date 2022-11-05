@@ -14,6 +14,10 @@ stack_queue.push("Estela")
 print("Esta vacia:", stack_queue.is_empty())
 print(stack_queue)
 print("Elemento de menor prioridad de la estructura:", stack_queue.top())
+
 print("Eliminar el elemento de menor prioridad de la estructura:", stack_queue.pop())
+print("Eliminar el elemento de menor prioridad de la estructura:", stack_queue.pop())
+print("Eliminar el elemento de menor prioridad de la estructura:", stack_queue.pop())
+
 print("Elemento de menor prioridad actual:", stack_queue.top())
 print(stack_queue)

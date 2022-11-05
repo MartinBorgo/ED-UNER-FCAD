@@ -1,5 +1,5 @@
 from python_ed_fcad_uner.data_structures import ArrayHeap
-from typing import Any
+from typing import Any, Tuple
 
 class HeapQueue():
     """Esta clase enmascara a todos los metodos privados de la clase PriorityHeap"""
@@ -7,7 +7,7 @@ class HeapQueue():
         self._heap = ArrayHeap()
         self._prio = 0
 
-    def __len__(self):
+    def __len__(self) -> int:
         """Devuelve la logitud de la estructura
         
         Returns:
@@ -15,7 +15,7 @@ class HeapQueue():
 
         return len(self._heap)
 
-    def is_empty(self):
+    def is_empty(self) -> bool:
         """Indica si la estructura esta vacia o no
         
         Returns:
@@ -23,7 +23,7 @@ class HeapQueue():
 
         return len(self._heap) == 0
 
-    def enqueue(self, value: Any):
+    def enqueue(self, value: Any) -> None:
         """Agrega un nodo a la estructura
         
         Param:
@@ -33,7 +33,7 @@ class HeapQueue():
         self._heap.add(self._prio, value)
         self._prio += 1
 
-    def dequeue(self):
+    def dequeue(self) -> Tuple[Any]:
         """Remueve el nodo de menor prioridad de la estructura
         
         Raises:
@@ -45,7 +45,7 @@ class HeapQueue():
         self._prio -= 1
         return self._heap.remove_min()
 
-    def first(self):
+    def first(self) -> Tuple[Any]:
         """Devuelve (sin eliminar), la nodo de menor prioridad de la estructura
         
         Returns:

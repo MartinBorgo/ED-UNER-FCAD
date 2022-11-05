@@ -3,7 +3,7 @@ from python_ed_fcad_uner.data_structures import LinkedBinaryTree, BinaryTreeNode
 
 class LinkedBinaryTreeExt(LinkedBinaryTreeExtAbstract,LinkedBinaryTree):
     
-    def hermanos(self, nodo1 : BinaryTreeNode, nodo2 : BinaryTreeNode):
+    def hermanos(self, nodo1 : BinaryTreeNode, nodo2 : BinaryTreeNode) -> bool:
         """ Indica si node1 y node2 son hermanos.
         
         Args:
@@ -21,7 +21,7 @@ class LinkedBinaryTreeExt(LinkedBinaryTreeExtAbstract,LinkedBinaryTree):
         else:
             return False
 
-    def hojas(self):
+    def hojas(self) -> list:
         """ Devuelve los elementos de los nodos que no tienen ningún hijo.
         
         Returns:
@@ -35,7 +35,7 @@ class LinkedBinaryTreeExt(LinkedBinaryTreeExtAbstract,LinkedBinaryTree):
 
         return lista_hojas
 
-    def internos(self):
+    def internos(self) -> list:
         """ Devuelve los elementos de los nodos que tienen padre y algún hijo.
 
         Returns:
@@ -50,7 +50,7 @@ class LinkedBinaryTreeExt(LinkedBinaryTreeExtAbstract,LinkedBinaryTree):
 
         return internos
 
-    def profundidad(self, nodo : BinaryTreeNode):
+    def profundidad(self, nodo : BinaryTreeNode) -> int:
         """ Devuelve la longitud del camino entre la raíz y un nodo.
 
         Args:
@@ -76,7 +76,7 @@ class LinkedBinaryTreeExt(LinkedBinaryTreeExtAbstract,LinkedBinaryTree):
             else:
                 profundidad += 1
 
-    def altura(self, nodo : BinaryTreeNode):
+    def altura(self, nodo : BinaryTreeNode) -> int:
         """ Retorna la longitud del camino entre nodo y la hoja más lejana.
         Args:
             nodo (BinaryTreeNode): nodo del que se quiere conocer la altura.
@@ -113,11 +113,11 @@ class LinkedBinaryTreeExt(LinkedBinaryTreeExtAbstract,LinkedBinaryTree):
 
         return altura
 
-    def _nodos_hoja(self):
+    def _nodos_hoja(self) -> list:
         """ Devuelve los nodos que no tienen ningún hijo.
         
         Returns:
-            List[Any]: lista formada por los nodos hoja. """
+            List[_Item]: lista formada por los nodos hoja. """
 
         lista_nodos_hoja = []
 

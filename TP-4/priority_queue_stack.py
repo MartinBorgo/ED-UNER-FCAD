@@ -1,19 +1,19 @@
-from utilidades.priority_node import PriorityNode
+from python_ed_fcad_uner.data_structures import PriorityQueueBase
 from typing import Any
 
-class PriorityQueueStack():
+class PriorityQueueStack(PriorityQueueBase):
     def __init__(self):
         self._content = []
         self._cont : int = 0
 
-    def __len__(self):
+    def __len__(self) -> int:
         """ Devuelve la longitud de la estructura
             
         Returns:
             int: la longitud de la estructura. """
         return len(self._content)
 
-    def __str__(self):
+    def __str__(self) -> str:
         """Esta funcion solo me sirve a mi para poder comprobar de que todo anda bien """
 
         if self.is_empty():
@@ -35,7 +35,7 @@ class PriorityQueueStack():
         Param:
             value Any: el valor que se va a introducir en la estructura """
 
-        self._content.append(PriorityNode(self._cont, value))
+        self._content.append(self._Item(self._cont, value))
         self._cont += -1
 
     def pop(self) -> Any:
@@ -60,7 +60,7 @@ class PriorityQueueStack():
             exception: si la estructura esta vacia arroja una excepcion.
             
         Return:
-            Any: el valor con menor prioridad en la estructura. """
+            Any: el nodo con menor prioridad en la estructura. """
         
         if self.is_empty():
             raise Exception("No se puede buscar un elementos porque la estructura esta vacia")
